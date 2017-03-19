@@ -1,0 +1,18 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<!--Обязательно использовать строку выше, иначе инклюды не работают!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <th:block th:include="includes :: header"></th:block>
+    <th:block th:include="includes :: css"></th:block>
+</head>
+<body>
+    <h1>Защищенная область сайта!</h1>
+    <form th:action="@{/logout}" method="post">
+        <button class="btn btn-default" type="submit">Выход</button>
+    </form>
+
+    <th:block th:include="includes :: scripts"></th:block>
+</body>
+</html>

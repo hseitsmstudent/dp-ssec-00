@@ -1,0 +1,18 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<!--Обязательно использовать строку выше, иначе инклюды не работают!-->
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <th:block th:include="includes :: header"></th:block>
+    <th:block th:include="includes :: css"></th:block>
+</head>
+<body>
+    <h1>Основная страница сайта (незащищенная)</h1>
+    <p>Перейдите по <a th:href="@{/hello}">ссылке</a> в защищенную область сервиса.</p>
+
+    <th:block th:include="includes :: scripts"></th:block>
+</body>
+</html>

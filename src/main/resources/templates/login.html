@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<!--Обязательно использовать строку выше, иначе инклюды не работают!-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <th:block th:include="includes :: header"></th:block>
+    <th:block th:include="includes :: css"></th:block>
+</head>
+<body>
+    <div class="form-group has-error" th:if="${param.error}">
+        <span class="help-block">Неправильная пара логин/пароль.</span>
+    </div>
+    <div class="form-group has-success" th:if="${param.logout}">
+        <span class="help-block">Вы вышли.</span>
+    </div>
+    <form class="form-inline" th:action="@{/login}" method="post">
+        <div class="form-group">
+            <label for="username">Логин (адрес почты)</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Логин (адрес почты)" />
+        </div>
+        <!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Пароль" />
+        </div>
+        <!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
+        <button type="submit" class="btn btn-default">Вход</button>
+        <!--<div><input type="submit" value="Sign In"/></div>-->
+    </form>
+
+    <th:block th:include="includes :: scripts"></th:block>
+</body>
+</html>
